@@ -1,0 +1,1 @@
+ALTER TABLE `produto_table` MODIFY COLUMN `image_url` varchar(255) DEFAULT './images/sem-imagem.jpg';

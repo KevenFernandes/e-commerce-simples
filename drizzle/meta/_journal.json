@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1750959997792,
+      "tag": "0000_far_gateway",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1751057812893,
+      "tag": "0001_hard_glorian",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1752015784477,
+      "tag": "0002_acoustic_william_stryker",
+      "breakpoints": true
+    }
+  ]
+}

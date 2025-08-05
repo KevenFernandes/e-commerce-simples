@@ -1,0 +1,670 @@
+{
+  "version": "5",
+  "dialect": "mysql",
+  "id": "bf15fa61-4935-433f-845a-55cd89de6091",
+  "prevId": "87774547-8790-4bb6-8436-cda857ca2ce7",
+  "tables": {
+    "cartItem_table": {
+      "name": "cartItem_table",
+      "columns": {
+        "idcart": {
+          "name": "idcart",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "id_produto": {
+          "name": "id_produto",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "id_usuario": {
+          "name": "id_usuario",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "quantidade": {
+          "name": "quantidade",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "cartItem_table_id_produto_produto_table_idproduto_fk": {
+          "name": "cartItem_table_id_produto_produto_table_idproduto_fk",
+          "tableFrom": "cartItem_table",
+          "tableTo": "produto_table",
+          "columnsFrom": [
+            "id_produto"
+          ],
+          "columnsTo": [
+            "idproduto"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "cartItem_table_id_usuario_usuario_table_idusuario_fk": {
+          "name": "cartItem_table_id_usuario_usuario_table_idusuario_fk",
+          "tableFrom": "cartItem_table",
+          "tableTo": "usuario_table",
+          "columnsFrom": [
+            "id_usuario"
+          ],
+          "columnsTo": [
+            "idusuario"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "cartItem_table_idcart": {
+          "name": "cartItem_table_idcart",
+          "columns": [
+            "idcart"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "endereco_table": {
+      "name": "endereco_table",
+      "columns": {
+        "idendereco": {
+          "name": "idendereco",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "rua": {
+          "name": "rua",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "bairro": {
+          "name": "bairro",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "cidade": {
+          "name": "cidade",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "complemento": {
+          "name": "complemento",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "estado": {
+          "name": "estado",
+          "type": "char(2)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "cep": {
+          "name": "cep",
+          "type": "varchar(9)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "id_perfil": {
+          "name": "id_perfil",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "endereco_table_id_perfil_perfilUsuario_table_idperfil_fk": {
+          "name": "endereco_table_id_perfil_perfilUsuario_table_idperfil_fk",
+          "tableFrom": "endereco_table",
+          "tableTo": "perfilUsuario_table",
+          "columnsFrom": [
+            "id_perfil"
+          ],
+          "columnsTo": [
+            "idperfil"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "endereco_table_idendereco": {
+          "name": "endereco_table_idendereco",
+          "columns": [
+            "idendereco"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "estoque_table": {
+      "name": "estoque_table",
+      "columns": {
+        "idestoque": {
+          "name": "idestoque",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "quantidade": {
+          "name": "quantidade",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 0
+        },
+        "data_atualizacao": {
+          "name": "data_atualizacao",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "onUpdate": true
+        },
+        "id_produto": {
+          "name": "id_produto",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "estoque_table_id_produto_produto_table_idproduto_fk": {
+          "name": "estoque_table_id_produto_produto_table_idproduto_fk",
+          "tableFrom": "estoque_table",
+          "tableTo": "produto_table",
+          "columnsFrom": [
+            "id_produto"
+          ],
+          "columnsTo": [
+            "idproduto"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "estoque_table_idestoque": {
+          "name": "estoque_table_idestoque",
+          "columns": [
+            "idestoque"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "estoque_table_id_produto_unique": {
+          "name": "estoque_table_id_produto_unique",
+          "columns": [
+            "id_produto"
+          ]
+        }
+      },
+      "checkConstraint": {}
+    },
+    "itemPedido_table": {
+      "name": "itemPedido_table",
+      "columns": {
+        "iditem": {
+          "name": "iditem",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "id_pedido": {
+          "name": "id_pedido",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "id_produto": {
+          "name": "id_produto",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "quantidade": {
+          "name": "quantidade",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "preco_unitario": {
+          "name": "preco_unitario",
+          "type": "decimal(10,2)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "preco_total": {
+          "name": "preco_total",
+          "type": "decimal(10,2)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "itemPedido_table_id_pedido_pedido_table_idpedido_fk": {
+          "name": "itemPedido_table_id_pedido_pedido_table_idpedido_fk",
+          "tableFrom": "itemPedido_table",
+          "tableTo": "pedido_table",
+          "columnsFrom": [
+            "id_pedido"
+          ],
+          "columnsTo": [
+            "idpedido"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "itemPedido_table_id_produto_produto_table_idproduto_fk": {
+          "name": "itemPedido_table_id_produto_produto_table_idproduto_fk",
+          "tableFrom": "itemPedido_table",
+          "tableTo": "produto_table",
+          "columnsFrom": [
+            "id_produto"
+          ],
+          "columnsTo": [
+            "idproduto"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "itemPedido_table_iditem": {
+          "name": "itemPedido_table_iditem",
+          "columns": [
+            "iditem"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "pedido_table": {
+      "name": "pedido_table",
+      "columns": {
+        "idpedido": {
+          "name": "idpedido",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "datapedido": {
+          "name": "datapedido",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
+        },
+        "statuspedido": {
+          "name": "statuspedido",
+          "type": "enum('pendente','processando','enviado','entregue')",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'pendente'"
+        },
+        "valor_total": {
+          "name": "valor_total",
+          "type": "decimal(10,2)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "metodo_pagamento": {
+          "name": "metodo_pagamento",
+          "type": "enum('boleto','cartão','pix')",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "status_pagamento": {
+          "name": "status_pagamento",
+          "type": "enum('pendente','aprovado','negado')",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'pendente'"
+        },
+        "id_usuario": {
+          "name": "id_usuario",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "id_endereco": {
+          "name": "id_endereco",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "pedido_table_id_usuario_usuario_table_idusuario_fk": {
+          "name": "pedido_table_id_usuario_usuario_table_idusuario_fk",
+          "tableFrom": "pedido_table",
+          "tableTo": "usuario_table",
+          "columnsFrom": [
+            "id_usuario"
+          ],
+          "columnsTo": [
+            "idusuario"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "pedido_table_id_endereco_endereco_table_idendereco_fk": {
+          "name": "pedido_table_id_endereco_endereco_table_idendereco_fk",
+          "tableFrom": "pedido_table",
+          "tableTo": "endereco_table",
+          "columnsFrom": [
+            "id_endereco"
+          ],
+          "columnsTo": [
+            "idendereco"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "pedido_table_idpedido": {
+          "name": "pedido_table_idpedido",
+          "columns": [
+            "idpedido"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "perfilUsuario_table": {
+      "name": "perfilUsuario_table",
+      "columns": {
+        "idperfil": {
+          "name": "idperfil",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "nome": {
+          "name": "nome",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "cpf": {
+          "name": "cpf",
+          "type": "varchar(11)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "telefone": {
+          "name": "telefone",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "id_usuario": {
+          "name": "id_usuario",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "perfilUsuario_table_id_usuario_usuario_table_idusuario_fk": {
+          "name": "perfilUsuario_table_id_usuario_usuario_table_idusuario_fk",
+          "tableFrom": "perfilUsuario_table",
+          "tableTo": "usuario_table",
+          "columnsFrom": [
+            "id_usuario"
+          ],
+          "columnsTo": [
+            "idusuario"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "perfilUsuario_table_idperfil": {
+          "name": "perfilUsuario_table_idperfil",
+          "columns": [
+            "idperfil"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "perfilUsuario_table_email_unique": {
+          "name": "perfilUsuario_table_email_unique",
+          "columns": [
+            "email"
+          ]
+        },
+        "perfilUsuario_table_cpf_unique": {
+          "name": "perfilUsuario_table_cpf_unique",
+          "columns": [
+            "cpf"
+          ]
+        },
+        "perfilUsuario_table_id_usuario_unique": {
+          "name": "perfilUsuario_table_id_usuario_unique",
+          "columns": [
+            "id_usuario"
+          ]
+        }
+      },
+      "checkConstraint": {}
+    },
+    "produto_table": {
+      "name": "produto_table",
+      "columns": {
+        "idproduto": {
+          "name": "idproduto",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "nome": {
+          "name": "nome",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "descricao": {
+          "name": "descricao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "preco": {
+          "name": "preco",
+          "type": "decimal(10,2)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "code": {
+          "name": "code",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "image_url": {
+          "name": "image_url",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "'./images/sem-imagem.jpg'"
+        },
+        "ativo": {
+          "name": "ativo",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": true
+        },
+        "data_criacao": {
+          "name": "data_criacao",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
+        },
+        "data_atualizacao": {
+          "name": "data_atualizacao",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "onUpdate": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "produto_table_idproduto": {
+          "name": "produto_table_idproduto",
+          "columns": [
+            "idproduto"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "produto_table_code_unique": {
+          "name": "produto_table_code_unique",
+          "columns": [
+            "code"
+          ]
+        }
+      },
+      "checkConstraint": {}
+    },
+    "usuario_table": {
+      "name": "usuario_table",
+      "columns": {
+        "idusuario": {
+          "name": "idusuario",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "username": {
+          "name": "username",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "password": {
+          "name": "password",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "role": {
+          "name": "role",
+          "type": "enum('client','admin')",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "'client'"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "usuario_table_idusuario": {
+          "name": "usuario_table_idusuario",
+          "columns": [
+            "idusuario"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "usuario_table_username_unique": {
+          "name": "usuario_table_username_unique",
+          "columns": [
+            "username"
+          ]
+        }
+      },
+      "checkConstraint": {}
+    }
+  },
+  "views": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "tables": {},
+    "indexes": {}
+  }
+}

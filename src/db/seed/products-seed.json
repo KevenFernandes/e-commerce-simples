@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "nome": "Azeite de Oliva Ext. Virgem Andorinha 500ml",
+      "descricao": "Azeite de Oliva Extra Virgem Português Andorinha Clássicos Vidro 500ml, ideal para saladas e finalização de pratos.",
+      "preco": 36.9,
+      "code": "AZEITE-AND-500ML",
+      "image_url": "./images/azeite001.png"
+    },
+    {
+      "nome": "Cafeteira Elétrica Mondial Smart",
+      "descricao": "Cafeteira programável com capacidade para 30 xícaras, filtro permanente e sistema corta-pingos.",
+      "preco": 129.99,
+      "code": "CAF-MON-SMART",
+      "image_url": "./images/cafeteira001.png"
+    },
+    {
+      "nome": "Smartphone Samsung Galaxy A54 128GB",
+      "descricao": "Tela AMOLED de 6.4, 8GB RAM, câmera tripla de 50MP, bateria de 5000mAh, resistente à água e poeira.",
+      "preco": 1899.0,
+      "code": "SAM-GA54-128GB",
+      "image_url": "./images/samsung001.png"
+    },
+    {
+      "nome": "Fone de Ouvido Bluetooth JBL Wave Buds",
+      "descricao": "Fone de ouvido sem fio intra-auricular com até 32 horas de bateria, chamadas viva-voz e graves aprimorados.",
+      "preco": 299.0,
+      "code": "JBL-WAVE-BUDS",
+      "image_url": "./images/fone001.png"
+    },
+    {
+      "nome": "Panela de Pressão Clock Original 4.5 Litros",
+      "descricao": "Panela de pressão em alumínio polido com 4.5 litros de capacidade, segurança e praticidade no preparo.",
+      "preco": 155.5,
+      "code": "PANELA-CLOCK-4L5",
+      "image_url": "./images/panela001.png"
+    },
+    {
+      "nome": "Liquidificador Philco PH900 Vermelho",
+      "descricao": "Liquidificador potente com 12 velocidades, função pulsar, filtro e jarra de vidro de 2.5 litros.",
+      "preco": 210.0,
+      "code": "LIQ-PHI-PH900",
+      "image_url": "./images/liquidificador001.png"
+    }
+  ]
+}
